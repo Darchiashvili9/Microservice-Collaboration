@@ -6,6 +6,11 @@ namespace LoyalityProgram.Controllers
     [Route("/users")]
     public class UsersController : ControllerBase
     {
+        private static readonly IDictionary<int, LoyaltyProgramUser> RegisteredUsers = new Dictionary<int, LoyaltyProgramUser>();
+
+        [HttpGet("{userId:int}")]
+        public ActionResult<LoyaltyProgramUser> GetUser(int userId) => RegisteredUsers.ContainsKey(userId) ? (ActionResult<LoyaltyProgramUser>)Ok(RegisteredUsers[userId]) : NotFound();
+
         [HttpPost("")]
         public ActionResult<LoyaltyProgramUser> CreateUser(
         [FromBody] LoyaltyProgramUser user)
@@ -21,5 +26,8 @@ namespace LoyalityProgram.Controllers
         {
             return user;
         }
+
+        [HttpPut("{userId:int}")]
+        public LoyaltyProgramUser UpdateUser(int userId, [FromBody] LoyaltyProgramUser user) => RegisteredUsers[userId] = user;
     }
 }

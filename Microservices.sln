@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoyalityProgram", "Loyality
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requests", "requests", "{45D6B602-D5AB-42F2-BE7F-523210887D6C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGatewayMock", "C:\Users\George\Desktop\Chapter05\ApiGatewayMock\ApiGatewayMock.csproj", "{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +19,15 @@ Global
 		{2FEE6BDC-FB80-42C5-A0D1-E96D3021DA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FEE6BDC-FB80-42C5-A0D1-E96D3021DA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FEE6BDC-FB80-42C5-A0D1-E96D3021DA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25A1E003-D93E-4C06-B4B7-5F2150C7B615}
 	EndGlobalSection
 EndGlobal
