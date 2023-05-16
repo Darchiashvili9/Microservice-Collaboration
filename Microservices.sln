@@ -9,7 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requests", "requests", "{45
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGatewayMock", "C:\Users\George\Desktop\Chapter05\ApiGatewayMock\ApiGatewayMock.csproj", "{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialOffers", "SpecialOffers\SpecialOffers.csproj", "{934B2C3C-C20D-45BE-8B12-25D360A6A47B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecialOffers", "SpecialOffers\SpecialOffers.csproj", "{934B2C3C-C20D-45BE-8B12-25D360A6A47B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoyalityProgram", "LoyalityProgram", "{6B22F89C-8842-43B1-AB39-6943EF245E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventConsumer", "EventConsumer\EventConsumer.csproj", "{9626B8F3-7509-4E8E-A540-E73E3C99C09A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,9 +33,17 @@ Global
 		{934B2C3C-C20D-45BE-8B12-25D360A6A47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{934B2C3C-C20D-45BE-8B12-25D360A6A47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{934B2C3C-C20D-45BE-8B12-25D360A6A47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9626B8F3-7509-4E8E-A540-E73E3C99C09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9626B8F3-7509-4E8E-A540-E73E3C99C09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9626B8F3-7509-4E8E-A540-E73E3C99C09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9626B8F3-7509-4E8E-A540-E73E3C99C09A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2FEE6BDC-FB80-42C5-A0D1-E96D3021DA23} = {6B22F89C-8842-43B1-AB39-6943EF245E88}
+		{9626B8F3-7509-4E8E-A540-E73E3C99C09A} = {6B22F89C-8842-43B1-AB39-6943EF245E88}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25A1E003-D93E-4C06-B4B7-5F2150C7B615}
