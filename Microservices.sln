@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoyalityProgram", "LoyalityProgram", "{6B22F89C-8842-43B1-AB39-6943EF245E88}"
 	ProjectSection(SolutionItems) = preProject
 		LoyalityProgram\Dockerfile = LoyalityProgram\Dockerfile
+		LoyalityProgram\loyalty-program.yaml = LoyalityProgram\loyalty-program.yaml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventConsumer", "LoyalityProgram\EventConsumer\EventConsumer.csproj", "{87230BD7-DE6B-4B36-B2A0-9408DBF79C08}"

@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "special offers!");
 
 app.UseRouting();
 app.MapControllers();

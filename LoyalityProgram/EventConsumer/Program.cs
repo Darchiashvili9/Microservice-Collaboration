@@ -5,11 +5,16 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+
+Console.WriteLine("********************");
+Console.WriteLine("EVENT CONSUMER *****************");
+
+
 var start = await GetStartIdFromDatastore();
 var end = 100;
 var client = new HttpClient();
 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-using var resp = await client.GetAsync(new Uri($"http://specialoffers:5002/events?start={start}&end={end}"));
+using var resp = await client.GetAsync(new Uri($"http://special-offers:5002/events?start={start}&end={end}"));
 await ProcessEvents(await resp.Content.ReadAsStreamAsync());
 await SaveStartIdToDataStore(start);
 
