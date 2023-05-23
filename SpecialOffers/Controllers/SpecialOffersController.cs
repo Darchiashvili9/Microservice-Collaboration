@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SpecialOffers.Models;
+﻿using Microsoft.Extensions.Logging;
 
-namespace SpecialOffers.Controllers
+namespace SpecialOffers.SpecialOffers
 {
+    using System;
+    using System.Collections.Generic;
+    using global::SpecialOffers.Models;
+    using Microsoft.AspNetCore.Mvc;
+
+    [Route("/offers")]
     public class SpecialOffersController : ControllerBase
     {
         private readonly IEventStore eventStore;

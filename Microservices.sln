@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requests", "requests", "{45D6B602-D5AB-42F2-BE7F-523210887D6C}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\George\Desktop\Chapter05\examples.http = C:\Users\George\Desktop\Chapter05\examples.http
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGatewayMock", "C:\Users\George\Desktop\Chapter05\ApiGatewayMock\ApiGatewayMock.csproj", "{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}"
 EndProject
@@ -11,6 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecialOffers", "SpecialOff
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoyalityProgram", "LoyalityProgram", "{6B22F89C-8842-43B1-AB39-6943EF245E88}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
 		LoyalityProgram\Dockerfile = LoyalityProgram\Dockerfile
 		LoyalityProgram\loyalty-program.yaml = LoyalityProgram\loyalty-program.yaml
 	EndProjectSection
