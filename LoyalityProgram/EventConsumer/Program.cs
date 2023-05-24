@@ -21,10 +21,16 @@ await SaveStartIdToDataStore(start);
 // fake implementation. Should get from a real database
 Task<long> GetStartIdFromDatastore() => Task.FromResult(0L);
 
+
 // fake implementation. Should apply business rules to events
 async Task ProcessEvents(Stream content)
 {
-    var events = await JsonSerializer.DeserializeAsync<SpecialOfferEvent[]>(content) ?? new SpecialOfferEvent[0];
+    var options = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true
+    };
+
+    var events = await JsonSerializer.DeserializeAsync<SpecialOfferEvent[]>(content, options) ?? new SpecialOfferEvent[0];
     foreach (var @event in events)
     {
         Console.WriteLine(@event);
