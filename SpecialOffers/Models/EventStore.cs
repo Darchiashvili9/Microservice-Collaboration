@@ -18,8 +18,9 @@
         }
 
         public IEnumerable<EventFeedEvent> GetEvents(int start, int end)
-          => Database
-            .Where(e => start <= e.SequenceNumber && e.SequenceNumber < end)
-            .OrderBy(e => e.SequenceNumber);
+        {
+            var ret = Database.Where(e => start <= e.SequenceNumber && e.SequenceNumber < end).OrderBy(e => e.SequenceNumber);
+            return ret;
+        }
     }
 }
