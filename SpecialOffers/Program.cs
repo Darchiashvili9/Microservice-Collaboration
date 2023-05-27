@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "special offers!");
+app.MapGet("/", () => "special offers! Version 2.0");
 
 app.UseRouting();
 app.MapControllers();

@@ -24,7 +24,8 @@ namespace LoyalityProgram.Controllers
         }
         private LoyaltyProgramUser RegisterUser(LoyaltyProgramUser user)
         {
-            return user;
+            var userId = RegisteredUsers.Count;
+            return RegisteredUsers[userId] = user with { Id = userId };
         }
 
         [HttpPut("{userId:int}")]

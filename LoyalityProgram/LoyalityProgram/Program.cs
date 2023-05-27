@@ -4,7 +4,7 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Loyality Program - UsersController API!");
+app.MapGet("/", () => "Loyality Program - UsersController API!  Version 2.0");
 
 
 
