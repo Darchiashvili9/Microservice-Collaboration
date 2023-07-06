@@ -18,15 +18,12 @@
         {
             var user = new { name, Settings = new { } };
 
-            return await this.httpClient.PostAsync("/users/",CreateBody(user));
+            return await this.httpClient.PostAsync("/users/", CreateBody(user));
         }
 
         private static StringContent CreateBody(object user)
         {
-            return new StringContent(
-            JsonSerializer.Serialize(user),
-            Encoding.UTF8,
-            "application/json");
+            return new StringContent(JsonSerializer.Serialize(user), Encoding.UTF8, "application/json");
         }
 
         public async Task<HttpResponseMessage> QueryUser(string arg)

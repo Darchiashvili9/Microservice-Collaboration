@@ -9,15 +9,10 @@ using System.Threading.Tasks;
 Console.WriteLine("******************** Version 2.0 Version 2.0 Version 2.0 Version 2.0");
 Console.WriteLine("EVENT CONSUMER ***************** Version 2.0 Version 2.0 Version 2.0");
 
-
-
 var start = await GetStartIdFromDatastore();
 // fake implementation. Should get from a real database
 // ეს რაღაც უაზრო იმპლემენტაცია გამოდის, პირდაპირ შეიძლებოდა აქ ხელით გაწერა მაშინ;
 Task<long> GetStartIdFromDatastore() => Task.FromResult(0L);
-
-
-
 
 var end = 100;
 var client = new HttpClient();
