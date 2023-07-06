@@ -1,12 +1,24 @@
-﻿namespace ApiGatewayMock
-{
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Text.Json;
+﻿using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.Json;
+using Polly;
+using Polly.Extensions.Http;
+using System;
 
+namespace ApiGatewayMock
+{
     public class LoyaltyProgramClient
     {
+
+        private static readonly IAsyncPolicy<HttpResponseMessage> ExponentialRetryPolicy = Policy<HttpResponseMessage>.Handle<HttpRequestException>()
+                                                                                                                      .OrTransientHttpStatusCode()
+                                                                                                                      .WaitAndRetryAsync(3, attempt =>
+                                                                                                                      {
+                                                                                                                          return TimeSpan.FromMilliseconds(100 * Math.Pow(2, attempt));
+                                                                                                                      });
+
+
         private readonly HttpClient httpClient;
 
         public LoyaltyProgramClient(HttpClient httpClient)
