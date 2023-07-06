@@ -8,8 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requests", "requests", "{45
 		C:\Users\George\Desktop\Chapter05\examples.http = C:\Users\George\Desktop\Chapter05\examples.http
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGatewayMock", "C:\Users\George\Desktop\Chapter05\ApiGatewayMock\ApiGatewayMock.csproj", "{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecialOffers", "SpecialOffers\SpecialOffers.csproj", "{934B2C3C-C20D-45BE-8B12-25D360A6A47B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoyalityProgram", "LoyalityProgram", "{6B22F89C-8842-43B1-AB39-6943EF245E88}"
@@ -23,16 +21,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventConsumer", "LoyalityPr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoyalityProgram", "LoyalityProgram\LoyalityProgram\LoyalityProgram.csproj", "{EA77AFDB-E042-4619-BF44-7759BFDFE887}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGatewayMock", "ApiGatewayMock\ApiGatewayMock.csproj", "{67158FD1-D9B8-4762-8E1D-C5C8B985EC45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B54CDCA3-4CA3-46A3-AD7C-571FDAF4D248}.Release|Any CPU.Build.0 = Release|Any CPU
 		{934B2C3C-C20D-45BE-8B12-25D360A6A47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{934B2C3C-C20D-45BE-8B12-25D360A6A47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{934B2C3C-C20D-45BE-8B12-25D360A6A47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{EA77AFDB-E042-4619-BF44-7759BFDFE887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA77AFDB-E042-4619-BF44-7759BFDFE887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA77AFDB-E042-4619-BF44-7759BFDFE887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67158FD1-D9B8-4762-8E1D-C5C8B985EC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67158FD1-D9B8-4762-8E1D-C5C8B985EC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67158FD1-D9B8-4762-8E1D-C5C8B985EC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67158FD1-D9B8-4762-8E1D-C5C8B985EC45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
