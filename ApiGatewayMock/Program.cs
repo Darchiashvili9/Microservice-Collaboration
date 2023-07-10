@@ -9,24 +9,42 @@ using static System.Console;
 using static System.Environment;
 using Polly;
 using Polly.Extensions.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 internal class Program
 {
     private static async Task Main(string[] args)
     {
-        var exponentialRetryPolicy = Policy<HttpResponseMessage>.Handle<HttpRequestException>()
-            .OrTransientHttpStatusCode()
-            .WaitAndRetryAsync(3, attempt =>
-            {
-                return TimeSpan.FromMilliseconds(100 * Math.Pow(2, attempt));
-            });
+        var exponentialRetryPolicy = Policy<HttpResponseMessage>
+                                                    .Handle<HttpRequestException>()
+                                                    .OrTransientHttpStatusCode()
+                                                    .WaitAndRetryAsync(3, attempt =>
+                                                    {
+                                                        return TimeSpan.FromMilliseconds(100 * Math.Pow(2, attempt));
+                                                    });
+
+        var circuitBreakerPolicy = Policy<HttpResponseMessage>
+                                                    .Handle<HttpRequestException>()
+                                                    .OrTransientHttpStatusCode()
+                                                    .CircuitBreakerAsync(5, TimeSpan.FromMinutes(1));
 
 
         var host = args.Length > 0 ? args[0] : "https://localhost:5001";
-        var client = new LoyaltyProgramClient(new HttpClient { BaseAddress = new Uri(host) });
-        var processCommand =
-          new Dictionary<char, (string description, Func<string, Task<(bool, HttpResponseMessage)>> handler)>
-          {
+
+        var serviceProvider = new ServiceCollection()
+                                                    .AddHttpClient<LoyaltyProgramClient>()
+                                                    .AddPolicyHandler(request => request.Method == HttpMethod.Get
+                                                    ? circuitBreakerPolicy
+                                                    : exponentialRetryPolicy)
+                                                    .ConfigureHttpClient(c => c.BaseAddress = new Uri(host))
+                                                    .Services
+                                                    .BuildServiceProvider();
+
+
+        var client = serviceProvider.GetService<LoyaltyProgramClient>()!;
+
+        var processCommand = new Dictionary<char, (string description, Func<string, Task<(bool, HttpResponseMessage)>> handler)>
+        {
                 {
                   'r',
                   ("r <user name> - to register a user with name <user name> with the Loyalty Program Microservice.",

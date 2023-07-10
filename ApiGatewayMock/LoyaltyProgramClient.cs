@@ -30,7 +30,7 @@ namespace ApiGatewayMock
         {
             var user = new { name, Settings = new { } };
 
-            return await this.httpClient.PostAsync("/users/", CreateBody(user));
+            return await ExponentialRetryPolicy.ExecuteAsync(() => this.httpClient.PostAsync("/users/", CreateBody(user)));
         }
 
         private static StringContent CreateBody(object user)
