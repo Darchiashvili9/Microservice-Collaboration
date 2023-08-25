@@ -6,22 +6,22 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using LoyalityProgram.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Hosting;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Xunit;
 
 public class UsersEndpoints_should : IDisposable
 {
-    private readonly IHost host;
+ //   private readonly IHost host;
     private readonly HttpClient sut;
+    private readonly WebApplicationFactory<LoyalityProgram.Controllers.UsersController> host;
 
     public UsersEndpoints_should()
     {
-        this.host = new HostBuilder()
-          .ConfigureWebHost(x => x
-            .UseTestServer())
-          .Start();
-        this.sut = this.host.GetTestClient();
+        this.host = new WebApplicationFactory<LoyalityProgram.Controllers.UsersController>();
+        this.sut = host.CreateClient();
     }
 
     [Fact]
