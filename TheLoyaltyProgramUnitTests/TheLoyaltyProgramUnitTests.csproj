@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LoyalityProgram\LoyalityProgram\LoyalityProgram.csproj" />
+    <ProjectReference Include="..\SpecialOffers\SpecialOffers.csproj" />
   </ItemGroup>
 
 </Project>

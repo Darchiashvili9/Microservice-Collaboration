@@ -8,18 +8,15 @@ namespace SpecialOffers.Controllers
     {
         private readonly IEventStore eventStore;
 
-        public EventFeedController(IEventStore eventStore)
-        {
-            this.eventStore = eventStore;
-        }
+        public EventFeedController(IEventStore eventStore) => this.eventStore = eventStore;
 
         [HttpGet("")]
-        public ActionResult<EventFeedEvent[]> GetEvents([FromQuery] int start, [FromQuery] int end)
+        public async Task<ActionResult<EventFeedEvent[]>> GetEvents([FromQuery] int start, [FromQuery] int end)
         {
             if (start < 0 || end < start)
                 return BadRequest();
 
-            return this.eventStore.GetEvents(start, end).ToArray();
+            return (await this.eventStore.GetEvents(start, end)).ToArray();
         }
     }
 }
