@@ -18,9 +18,11 @@
         }
 
         public Task<IEnumerable<EventFeedEvent>> GetEvents(int start, int end)
-          => Task.FromResult<IEnumerable<EventFeedEvent>>(
-            Database
-            .Where(e => start <= e.SequenceNumber && e.SequenceNumber < end)
-            .OrderBy(e => e.SequenceNumber));
+        {
+            return Task.FromResult<IEnumerable<EventFeedEvent>>(
+                Database
+                .Where(e => start <= e.SequenceNumber && e.SequenceNumber < end)
+                .OrderBy(e => e.SequenceNumber));
+        }
     }
 }

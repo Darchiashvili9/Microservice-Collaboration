@@ -6,9 +6,13 @@ namespace SpecialOffers.Controllers
     [Route(("/events"))]
     public class EventFeedController : ControllerBase
     {
+        //ფაქტიურად რეპოზიტორია ეს ივენთსტორი;
         private readonly IEventStore eventStore;
 
-        public EventFeedController(IEventStore eventStore) => this.eventStore = eventStore;
+        public EventFeedController(IEventStore eventStore)
+        {
+            this.eventStore = eventStore;
+        }
 
         [HttpGet("")]
         public async Task<ActionResult<EventFeedEvent[]>> GetEvents([FromQuery] int start, [FromQuery] int end)

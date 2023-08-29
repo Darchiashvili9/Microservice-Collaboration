@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SpecialOffers.Controllers;
 using SpecialOffers.Models;
 using System;
 using System.Collections.Generic;
@@ -13,13 +18,22 @@ namespace TheLoyaltyProgramUnitTests
 {
     public class EventFeed_should : IDisposable
     {
+        private readonly IHost host;
         private readonly HttpClient sut;
-        private readonly WebApplicationFactory<LoyalityProgram.Controllers.UsersController> host;
 
         public EventFeed_should()
         {
-            this.host = new WebApplicationFactory<LoyalityProgram.Controllers.UsersController>();
-            this.sut = host.CreateClient();
+            this.host = new HostBuilder()
+              .ConfigureWebHost(host =>
+                host
+                  .ConfigureServices(x => x
+                    .AddScoped<IEventStore, FakeEventStore>()
+                    .AddControllersByType(typeof(EventFeedController))
+                    .AddApplicationPart(typeof(EventFeedController).Assembly))
+                  .Configure(x => x.UseRouting().UseEndpoints(opt => opt.MapControllers()))
+                  .UseTestServer())
+              .Start();
+            this.sut = this.host.GetTestClient();
         }
 
         [Fact]
