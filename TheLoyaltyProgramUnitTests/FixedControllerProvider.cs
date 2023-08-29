@@ -13,21 +13,28 @@ namespace TheLoyaltyProgramUnitTests
     {
         private readonly Type[] controllerTypes;
 
-        public FixedControllerProvider(params Type[] controllerTypes) => this.controllerTypes = controllerTypes;
+        public FixedControllerProvider(params Type[] controllerTypes)
+        {
+            this.controllerTypes = controllerTypes;
+        }
 
-        protected override bool IsController(TypeInfo typeInfo) => this.controllerTypes.Contains(typeInfo);
+        protected override bool IsController(TypeInfo typeInfo)
+        {
+            return this.controllerTypes.Contains(typeInfo);
+        }
     }
 
     public static class MvcBuilderExtensions
     {
-        public static IMvcBuilder AddControllersByType(this IServiceCollection services, params Type[] controllerTypes) =>
-          services
+        public static IMvcBuilder AddControllersByType(this IServiceCollection services, params Type[] controllerTypes)
+        {
+            return services
             .AddControllers()
             .ConfigureApplicationPartManager(mgr =>
             {
                 mgr.FeatureProviders.Remove(mgr.FeatureProviders.First(f => f is ControllerFeatureProvider));
                 mgr.FeatureProviders.Add(new FixedControllerProvider(controllerTypes));
             });
-
+        }
     }
 }
