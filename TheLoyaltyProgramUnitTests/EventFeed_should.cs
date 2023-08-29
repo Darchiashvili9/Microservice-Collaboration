@@ -43,8 +43,7 @@ namespace TheLoyaltyProgramUnitTests
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
             var eventFeedEvents =
-              await JsonSerializer.DeserializeAsync<IEnumerable<EventFeedEvent>>(await actual.Content.ReadAsStreamAsync())
-              ?? Enumerable.Empty<EventFeedEvent>();
+              await JsonSerializer.DeserializeAsync<IEnumerable<EventFeedEvent>>(await actual.Content.ReadAsStreamAsync()) ?? Enumerable.Empty<EventFeedEvent>();
             Assert.Equal(100, eventFeedEvents.Count());
         }
 
